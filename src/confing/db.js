@@ -23,3 +23,13 @@ pool.getConnection((err, connection) => {
 });
 
 module.exports = pool;
+
+/*DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=Wilmer17
+DB_DATABASE=tienda
+DB_PORT=3306
+JWT_SECRET=william
+
+
+STRIPE_SECRET_KEY=sk_test_51R5K2FCaO7t3wqngPDBgyvpAwGRoBT0FvZigRCwAzq5MEOxGRN8fSqC1Kb1qDrURg6O3mULXMQmx8Qe7ZnSBtwuu006DG5kRDT*/
