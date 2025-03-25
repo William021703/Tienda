@@ -1,0 +1,41 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pago</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f4f4f4;
+      }
+      .contenido {
+        padding: 10px;
+        border: 1px solid #000;
+        font-size: 20px;
+        text-align: center;
+      }
+      button {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="contenido">
+      Número de Orden: <span id="numeroOrden"></span> <br /><br /><br /><br />
+      <button type="button" id="enviar">Volver a productos</button>
+    </div>
+
+    <script>
+      document.getElementById("numeroOrden").textContent = Math.floor(
+        Math.random() * 1000000
+      );
+      document.getElementById("enviar").addEventListener("click", function () {
+        window.location.href = "http://localhost:5173/productos";
+      });
+    </script>
+  </body>
+</html>
