@@ -3,7 +3,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-
+console.log(stripe);
 const createSession = async (req, res) => {
   const { producto } = req.body;
   if (producto.length === 0) {

@@ -3,11 +3,11 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const pool = mySql2.createPool({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_DATABASE,
-  port: process.env.DB_PORT,
+  host: process.env.MYSQLHOST, // Usar la variable 'MYSQLHOST' proporcionada por Railway
+  user: process.env.MYSQLUSER, // Usar la variable 'MYSQLUSER' proporcionada por Railway
+  password: process.env.MYSQLPASSWORD, // Usar la variable 'MYSQL_ROOT_PASSWORD' proporcionada por Railway
+  database: process.env.MYSQL_DATABASE, // Usar la variable 'MYSQL_DATABASE' proporcionada por Railway
+  port: process.env.MYSQLPORT,
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
@@ -15,8 +15,7 @@ const pool = mySql2.createPool({
 
 pool.getConnection((err, connection) => {
   if (err) {
-    console.log("Error al cargar la base de datos");
-    console.log("error");
+    console.log("Error al cargar la base de datos:", err);
     return;
   }
   console.log("base de datos conectada");
