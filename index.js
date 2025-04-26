@@ -22,7 +22,7 @@ const path = require("path");
 dotenv.config();
 
 const app = express();
-const Port = process.env.PORT || 3020;
+const Port = process.env.PORT;
 
 app.use(morgan("dev"));
 app.use(bodyParser.json());
