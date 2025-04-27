@@ -22,7 +22,7 @@ const path = require("path");
 dotenv.config();
 
 const app = express();
-const Port = process.env.PORT;
+const Port = process.env.MYSQLPORT;
 
 app.use(morgan("dev"));
 app.use(bodyParser.json());
