@@ -30,8 +30,8 @@ const createSession = async (req, res) => {
       payment_method_types: ["card"],
       line_items: Items,
       mode: "payment",
-      success_url: "http://localhost:3020/pagos/success",
-      cancel_url: "http://localhost:3020/pagos/cancelar",
+      success_url: "https://tienda-production-852a.up.railway.app/success",
+      cancel_url: "https://tienda-production-852a.up.railway.app/cancelar",
     });
     return res.status(200).json(session.url);
   } catch (error) {
