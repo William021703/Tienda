@@ -22,7 +22,7 @@ const path = require("path");
 dotenv.config();
 
 const app = express();
-const Port = process.env.MYSQLPORT;
+const PORT = process.env.MYSQLPORT || 3020;
 
 app.use(morgan("dev"));
 app.use(bodyParser.json());
@@ -41,6 +41,6 @@ app.use("/eliminarTodo", rutaEliminarTodo);
 app.use("/pagos", rutaStripe);
 app.use(express.static(path.resolve("src/public")));
 
-app.listen(Port, () => {
-  console.log(`servidor a ecutandose en e localhost:${Port}`);
+app.listen(PORT, () => {
+  console.log(`servidor a ecutandose en e localhost:${PORT}`);
 });
