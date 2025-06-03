@@ -26,7 +26,11 @@ const PORT = process.env.MYSQLPORT || 3020;
 
 app.use(morgan("dev"));
 app.use(bodyParser.json());
-app.use(cors({ origin: "https://teal-pony-fe4b61.netlify.app" }));
+app.use(
+  cors({
+    origin: "[https://teal-pony-fe4b61.netlify.app, http://localhost:5173/]",
+  })
+);
 
 
 app.use("/productos", rutaProductos);
