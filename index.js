@@ -32,7 +32,6 @@ app.use(
   })
 );
 
-
 app.use("/productos", rutaProductos);
 app.use("/crearProductos", rutaCrearProducto);
 app.use("/roles", rutaRoles);
