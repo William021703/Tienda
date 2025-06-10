@@ -28,7 +28,7 @@ app.use(morgan("dev"));
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: "https://proyecto-tienda-fullstack.netlify.app/",
+    origin: "https://proyecto-tienda-fullstack.netlify.app",
   })
 );
 
