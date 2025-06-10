@@ -1,38 +1,98 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pago</title>
+    <title>Pago Exitoso</title>
     <style>
+      * {
+        box-sizing: border-box;
+      }
+
       body {
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #e6f2ff;
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100vh;
-        margin: 0;
-        background-color: #f4f4f4;
       }
+
       .contenido {
-        padding: 10px;
-        border: 1px solid #000;
-        font-size: 20px;
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         text-align: center;
+        max-width: 90%;
+        width: 400px;
       }
+
+      h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .orden {
+        background-color: #dff0d8;
+        color: #3c763d;
+        padding: 15px;
+        font-size: 26px;
+        font-weight: bold;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        word-wrap: break-word;
+      }
+
       button {
-        margin-top: 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 12px 24px;
+        font-size: 16px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      @media (max-width: 500px) {
+        .contenido {
+          padding: 20px;
+        }
+
+        .orden {
+          font-size: 22px;
+        }
+
+        h1 {
+          font-size: 20px;
+        }
+
+        button {
+          width: 100%;
+        }
       }
     </style>
   </head>
   <body>
     <div class="contenido">
-      Número de Orden: <span id="numeroOrden"></span> <br /><br /><br /><br />
+      <h1>¡Gracias por tu compra!</h1>
+      <div class="orden" id="numeroOrden">ORD-######</div>
       <button type="button" id="enviar">Volver a productos</button>
     </div>
 
     <script>
-      document.getElementById("numeroOrden").textContent = Math.floor(
-        Math.random() * 1000000
-      );
+      const ordenGenerada =
+        "ORD-" + Math.floor(100000 + Math.random() * 900000);
+      document.getElementById("numeroOrden").textContent = ordenGenerada;
+
       document.getElementById("enviar").addEventListener("click", function () {
         window.location.href = "https://teal-pony-fe4b61.netlify.app";
       });
