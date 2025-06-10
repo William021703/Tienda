@@ -34,7 +34,7 @@ const loging = async (req, res) => {
         rol_id: buscarUsuario.rol_id,
       },
       token,
-      id: buscarUsuario.usuario_id,
+      id: buscarUsuario.rol_id,
     });
   } catch (error) {
     return res.status(400).json({ error: error.menssage });
