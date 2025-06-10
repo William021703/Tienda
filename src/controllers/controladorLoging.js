@@ -25,6 +25,7 @@ const loging = async (req, res) => {
       process.env.JWT_SECRET,
       { expiresIn: "1h" }
     );
+    let id = null;
     res.status(200).json({
       usuario: {
         nombre: buscarUsuario.nombre,
@@ -33,6 +34,7 @@ const loging = async (req, res) => {
         rol_id: buscarUsuario.rol_id,
       },
       token,
+      id: buscarUsuario.usuario_id,
     });
   } catch (error) {
     return res.status(400).json({ error: error.menssage });
