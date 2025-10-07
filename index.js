@@ -19,6 +19,9 @@ const { rutaEliminarTodo } = require("./src/rutas/rutaEliminarTodo");
 const { rutaStripe } = require("./src/rutas/rutaStripe");
 const path = require("path");
 
+const swaggerUi = require("swagger-ui-express");
+const swaggerSpecs = require("./config/swager");
+
 dotenv.config();
 
 const app = express();
@@ -32,6 +35,7 @@ app.use(
   })
 );
 
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
 app.use("/productos", rutaProductos);
 app.use("/crearProductos", rutaCrearProducto);
 app.use("/roles", rutaRoles);
