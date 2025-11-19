@@ -28,7 +28,11 @@ app.use(morgan("dev"));
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: "https://proyecto-tienda-fullstack.netlify.app",
+    origin: [
+      "https://proyecto-tienda-fullstack.netlify.app",
+      "http://localhost:5173", // tu frontend local
+    ],
+    credentials: true, // si quieres usar cookies/JWT en headers
   })
 );
 
