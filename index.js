@@ -26,15 +26,16 @@ const PORT = process.env.MYSQLPORT || 3020;
 
 app.use(morgan("dev"));
 app.use(bodyParser.json());
-app.use(
-  cors({
-    origin: [
-      "https://proyecto-tienda-fullstack.netlify.app",
-      "http://localhost:5173", // tu frontend local
-    ],
-    credentials: true, // si quieres usar cookies/JWT en headers
-  })
-);
+if (process.env.NODE_ENV === "development") {
+  app.use(cors());
+} else {
+  app.use(
+    cors({
+      origin: "https://proyecto-tienda-fullstack.netlify.app",
+      credentials: true,
+    })
+  );
+}
 
 app.use("/productos", rutaProductos);
 app.use("/crearProductos", rutaCrearProducto);
