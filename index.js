@@ -26,16 +26,23 @@ const PORT = process.env.MYSQLPORT || 3020;
 
 app.use(morgan("dev"));
 app.use(bodyParser.json());
-if (process.env.NODE_ENV === "development") {
-  app.use(cors());
-} else {
-  app.use(
-    cors({
-      origin: "https://proyecto-tienda-fullstack.netlify.app",
-      credentials: true,
-    })
-  );
-}
+const allowedOrigins = [
+  "https://proyecto-tienda-fullstack.netlify.app",
+  "http://localhost:5173",
+];
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("CORS bloqueado: " + origin));
+      }
+    },
+    credentials: true,
+  })
+);
 
 app.use("/productos", rutaProductos);
 app.use("/crearProductos", rutaCrearProducto);
